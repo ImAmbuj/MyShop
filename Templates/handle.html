@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}Checkout - BookStore{% endblock %}
+{% block CSS %}
+<link rel="stylesheet" href="{% static 'CSS/checkout.css'%}">
+{%endblock%}
+{% block body %}
+ {{response}}
+<h2>Payment Status Regarding Your order {{response.ORDERID}}</h2>
+{% if response.RESPCODE == '01' %}
+ORDER SUCCESSFULL
+{% else %}
+ORDER FAILED
+{% endif %}
+   
+
+{%endblock%}

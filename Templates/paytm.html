@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}Checkout - BookStore{% endblock %}
+{% block CSS %}
+<link rel="stylesheet" href="{% static 'CSS/checkout.css'%}">
+{%endblock%}
+{% block body %}
+
+<h2>Redirecting, Please do not refresh the page.. </h2>
+
+<form action="https://securegw-stage.paytm.in/theia/processTransaction" method="post" name="paytm">
+   {% for key, value in param_dict.items %}
+   <input type="hidden" name="{{key}}" value="{{value}}">
+   {%endfor%}
+</form>
+{%endblock%}
+{% block js %}
+<script>
+    document.paytm.submit()
+</script>
+{%endblock%}

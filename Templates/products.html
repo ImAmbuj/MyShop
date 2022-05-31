@@ -1,0 +1,62 @@
+
+{% extends 'base.html' %}
+{% load static %}
+{% block CSS %}
+<link rel="stylesheet" href="{% static 'CSS/products.css'%}">
+<style>
+    #btn-2{
+        margin: 5px;
+    }
+</style>
+{% endblock %}
+{% block title %}All Products - BookStore {% endblock %}
+ 
+  
+{% block body %}
+<!------------ Featured products -------------->
+    <div class="small-container">
+        <div class="row row-2">
+           <h2 class="title">All Products</h2>
+           <select>
+               <option value="">Default Sorting</option>
+               <option value="">Sort By Price</option>
+               <option value="">Sort by Name</option>
+            </select>
+        </div>
+        <div class="row">
+            {% for product in products %}
+            <div class="col-4">
+                <a href="/Product/{{product.slug}}">
+                    <img src="{{product.product_image.url}}">
+                    <h4>{{product.title}}</h4>
+                </a>    
+                <p>Price : ${{product.price}}</p>
+                <a href="/Add-to-cart/{{product.slug}}" class="btn" id="btn-2">Add To Cart</a>
+            </div>
+            {% endfor %}
+        </div>
+    
+        <div class="page-btn">
+
+            {% if products.has_previous %}
+            <a href="?page={{products.previous_page_number}}"><span>&#8592</span></a>
+            {%endif%}
+
+            {% for num in products.paginator.page_range %}
+            {% if products.number == num %}
+
+             <span style="background: red; color:white;">{{num}}</span>
+            
+            {% elif num > products.number|add:'-2' and num < products.number|add:'2' %}
+            
+            <a href="?page={{num}}"><span>{{num}}</span></a>
+
+            {%endif%}
+            {% endfor %}
+            {% if products.has_next %}
+            <a href="?page={{products.next_page_number}}"><span>&#8594</span></a>
+            {%endif%}
+        </div>
+    </div>
+{% endblock %}
+   

@@ -1,0 +1,47 @@
+.single-product{
+    margin-top: 20px;
+}
+.single-product .col-2 img{
+    padding: 10px;
+}
+.single-product .col-2{
+    padding: 25px;
+}
+.single-product h4{
+    margin: 20px;
+    font-size: 22px;
+    font-weight: bold;
+}
+.single-product input{
+    width: 50px;
+    height: 40px;
+    padding-left: 10px;
+    margin-right: 10px;
+    font-size: 20px;
+    border: 1px solid red;
+}
+input:focus{
+    outline: none;
+}
+.small-img-row{
+    display: flex;
+    justify-content: space-between;
+    
+}
+.small-img-col{
+    flex-basis: 24%;
+    cursor: pointer;
+}
+@media only screen and (max-width: 600px)
+{
+    .single-product .row{
+        text-align: left;
+    }
+    .single-product .col-2{
+        padding: 20px 0;
+    }
+    .single-product h1{
+        font-size: 26px;
+        line-height: 26px;
+    }
+} 

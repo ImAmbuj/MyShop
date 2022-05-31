@@ -1,0 +1,110 @@
+{% extends 'base.html' %}
+
+{% block title %}BookStore - E-commerce{% endblock %}
+
+{% block body %}
+  {% load static %}
+    <div class="header">
+        <div class="container">
+            <div class="row">
+                <div class="col-2">
+                  <h1>Get Your Things<br> Online Now!</h1>
+                  <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Laborum iure pariatur ex 
+                      eligendi a voluptate, qui vero ab.</p>
+                     <a href="/Products" class="btn">Explore Now &#8594;</a>
+                </div>
+                <div class="col-2">
+                    <img src="{% static 'img/bg.png'%}">
+                </div>
+            </div>
+        </div>
+    </div>
+
+  <!------  featured categories  ------>
+    <div class="categories">
+        <div class="row">
+            <div class="col-3">
+              <img src="{% static 'img/cat-1.jpg' %}" height="270px" width="270px">         
+            </div>
+            <div class="col-3">
+                <img src="{% static 'img/cat-2.jpg' %}" height="270px" width="270px"> 
+            </div>
+            <div class="col-3">
+                <img src="{% static 'img/cat-3.jpg'%}" height="270px" width="270px"> 
+            </div>
+        </div>
+    </div>
+
+<!------------ Featured products -------------->
+    <div class="small-container">
+        <h2 class="title">Featured Products</h2>
+        <div class="row">
+               {% for product in products %}
+               {% if product.featured %}
+            <div class="col-4">
+                <a href="/Product/{{product.slug}}">
+                   <img src="{{product.product_image.url}}">
+                   <h4>{{product.title}}</h4>
+                </a> 
+                <p>${{product.price}}</p>
+            </div>
+               {% endif %}
+               {% endfor %}
+
+        </div>
+        <!------- Latest Products------->
+        <h2 class="title">Latest Products</h2>
+        <div class="row">
+            {% for product in products %}
+            {% if product.latest %}
+            <div class="col-4">
+                <a href="/Product/{{product.slug}}">
+                   <img src="{{product.product_image.url}}">
+                   <h4>{{product.title}}</h4>
+                </a>   
+                <p>${{product.price}}</p>
+            </div>
+            {% endif %}
+            {% endfor %}
+
+        </div>
+    </div>
+     <!--------Exclusive-------->
+    <div class="offer">
+        <div class="small-container">
+            <div class="row">
+                <div class="col-2">
+                    <img src="{% static 'img/belt-exc.png'%}" class="offer-img">
+                </div>
+                <div class="col-2">
+                    <p>Exclusively Available on BookStore</p>
+                    <h1>Red Leather Belt</h1>
+                    <small>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nesciunt alias dignissimos ut quae adipisci inventore iure tempora doloremque consequatur. Incidunt,
+                         commodi voluptas facere quis sunt ducimus labore vel eaque doloremque.</small>
+                         <br><a href="" class="btn">Buy Now &#8594;</a>
+                </div>
+            </div>
+        </div>
+    </div>       
+    
+    <hr style="margin-top: 20px;">
+<!-------  Brands ------->
+     <div class="brands">
+         <div class="small-container">
+             <div class="row">
+                 <div class="col-5">
+                     <img src="{% static 'img/canon.jpg' %}">
+                 </div>
+                 <div class="col-5">
+                     <img src="{% static 'img/company3.jpg' %}">
+                 </div>
+                 <div class="col-5">
+                     <img src="{% static 'img/fevicol.jpg' %}">
+                 </div>
+                <div class="col-5">
+                     <img src="{% static 'img/epson2.jpg' %}" >
+                 </div>
+             </div>
+         </div>
+     </div>
+     {% endblock %}

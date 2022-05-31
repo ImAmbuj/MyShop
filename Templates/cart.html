@@ -1,0 +1,79 @@
+{% extends 'base.html' %}{% load static %}
+{% block title %}Cart - BookStore{% endblock %}
+{% block CSS %}
+<link rel="stylesheet" href="{% static 'CSS/cart.css'%}">
+<style>
+    #qty{
+        display:flex
+    }
+    .small-button{
+        padding: 2.2px;
+        margin: 0px 4px;
+    }
+    #pro{
+        float: right; 
+        margin-top:10px;
+        border: none;
+        padding-right: 15px;
+        padding-left: 20px;
+    }
+</style>
+{% endblock %}
+{% block body %}
+          <!--Cart Items-->
+          <div class="small-container cart-page">
+              <table>
+                  <tr>
+                      <th>Product</th>
+                      <th>Quantity</th>
+                      <th>Subtotal</th>
+                  </tr>
+                  {% for item in cart_items %}
+                  <tr>
+                      <td>
+                          <div class="cart-info">
+                              <img src="{{item.item.product_image.url}}" width="150px" height="150px" >
+                              <div>
+                                 <p>{{item.item.title}}</p>
+                                  <small>Price: ${{item.item.price}}</small><br>
+                                  <a href="/Remove-from-cart/{{item.item.slug}}">Remove</a>
+                              </div>
+                          </div>
+                      </td>
+
+                      <td id="qty">
+                         <a href="/Add-to-cart/{{item.item.slug}}"><button class="small-button"> + </button></a>
+                              <h3>{{item.quantity}} </h3>
+                         <a href="/Decrease-quantity/{{item.item.slug}}"><button class="small-button"> - </button></a>
+                      </td>
+
+                      <td>${{item.total_item_price}}</td>
+                  </tr>
+                  {%endfor%}
+              </table>
+
+              <div class="total-price">
+                  <table>
+                        {% for i in order %}
+                      <tr>                        
+                          <td>Subtotal</td>
+                          <td>${{i.total_price}}</td>
+                      </tr>
+                        {% endfor %}
+                      <tr>
+                          <td>Tax</td>
+                          <td>$20.00</td>
+                      </tr>
+                      <tr>
+                          <td>Total</td>
+                          <td>$220.00</td>
+                      </tr> 
+                  </table>
+              </div>
+              {% if order %}
+              <a href="/Checkout"><button class="btn" id="pro">Checkout &#8594;</button></a>
+              {% endif %}
+          </div>
+      
+{% endblock %}
+     

@@ -1,0 +1,38 @@
+@media only screen and (max-width:600px){
+    .cart-info p{
+        display: none;
+    }
+} 
+.about{
+    width: 1000px;
+    justify-content: center;
+    margin: 20px auto;
+}
+.content{
+    font-size: 25px;
+    text-align: center;
+    font-weight: 300;
+    color: #555;
+}
+.About-Container{
+    display: flex;
+    justify-content: space-between;
+}
+.text {
+    width: 45%;
+    font-size: 23px;
+    margin-right: 20px;
+    margin-top: 50px;
+}
+.img{
+    width: 50%;
+}
+.img img{
+    max-width: 670px;
+    height: auto;
+}
+@media only screen and (max-width:600px){
+    .About-Container{
+        flex-basis: 50%;
+    }
+}

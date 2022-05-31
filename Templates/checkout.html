@@ -1,0 +1,91 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}Checkout - BookStore{% endblock %}
+{% block CSS %}
+<link rel="stylesheet" href="{% static 'CSS/checkout.css'%}">
+{%endblock%}
+{% block body %}
+
+       <!--Checkout-->
+       <h1>Checkout Here:-</h1>
+   <div class="checkoutSection">
+       <div class="checkoutForm">
+           <form action="" method="POST">
+               {% csrf_token %}
+                <div class="inputBox">
+                   <input type="text" name="full_name" required="required">
+                   <span>Full Name</span>
+                </div>
+                <div class="inputBox">
+                   <input type="text" name="adress" required="required">
+                   <span>Adress</span>
+                </div>
+                <div class="inputBox">
+                   <input type="email" name="email" required="required">
+                   <span>Email</span>
+                </div>
+
+                {% for i in order %}
+                <input type="hidden" name="amount" value="{{i.total_price}}">
+                {%endfor%}
+
+                <div class="s-inputBox">
+                   <input type="text" name="state" placeholder="State" required="required">
+                   
+                </div>
+                <div class="s-inputBox">
+                   <input type="text" name="pin_code" placeholder="Pin Code" required="required">
+                   
+                </div>
+                <div class="s-inputBox">
+                   <input type="tel" name="contact" placeholder="Contact Number" required="required">
+                   
+                </div>
+                <h3 style="margin-top: 10px;" >Payment Method :</h3>
+                <div class="checkBox">
+                   <input type="radio" name="payment_c" value="PayTm">
+                   <label>Pay Now</label>
+                   <input type="radio" name="payment_c" value="NetBanking">
+                   <label>Cash on Delivery</label>
+                </div>
+                <div class="checkBox">
+                  <button class="btn" id="btn-2" type="submit">Proceed</button>
+                </div>          
+           </form>
+       </div>
+       <div class="cart-summary">
+            <table>
+                <tr>
+                    <th>Product :</th>
+                    <th>Price :</th>
+                </tr>
+
+                {% for item in cart_items %}
+                
+                <tr>
+                    <td>
+                        <div class="cart-info">
+                            <img src="{{item.item.product_image.url}}" alt="">
+                            <p>{{item.item.title}}</p>
+                        </div>
+                    </td>
+                    <td>
+                        <small> ${{item.total_item_price}}</small>   
+                    </td>
+                </tr>
+
+                {% endfor %}
+
+                {% for i in order %}
+
+                    <td style="margin-left: 20px;">
+                        <b>Your Order Total :</b>
+                    </td>
+                    <td>${{i.total_price}}</td>
+                {% endfor %}
+
+                </tr>
+            </table>
+       </div>
+   </div>
+{%endblock%}

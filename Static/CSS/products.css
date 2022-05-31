@@ -1,0 +1,30 @@
+.row-2{
+    justify-content: space-between;
+    margin: 50px auto 30px;
+}
+select{
+    border: 1px solid #ff523b;
+    padding: 8px;
+    font-size: 14px;
+    font-weight: 300;
+}
+select:focus{
+    outline: none;
+}
+.page-btn{
+    margin: 0 auto 40px;
+}
+.page-btn span{
+    display: inline-block;
+    border: 1px solid red;
+    margin-left: 10px;
+    width: 40px;
+    height: 40px;
+    text-align: center;
+    line-height: 40px;
+    cursor: pointer;
+}
+.page-btn span:hover{
+    background: red;
+    color: white;
+}

@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}About Us - BookStore {% endblock %}
+{% block CSS %}
+<link rel="stylesheet" href="{% static 'CSS/about.css'%}">
+{% endblock %}
+{% block body %}   
+    <section class="about">
+        <div class="content">
+            <h2>About Us :)</h2>
+        </div>
+        <div class="About-Container">
+            <div class="text">
+             <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Minima quidem eos eum quisquam distinctio consequatur hic tempore dignissimos quae nam,
+                 Lorem ipsum dolor sit amet consectetur, adipisicing elit. Natus sequi a obcaecati explicabo ab ducimus, quod sed dolorem,
+                 Lorem ipsum dolor sit amet consectetur adipisicing elit. Ab voluptatem placeat quae facilis iste! Adipisci voluptates eos obcaecati sit beatae,
+                  aut dignissimos natus error sint, saepe possimus rerum facere debitis! amet odit inventore quia sunt? Quas aliquam natus ipsam nulla labore sint! error id similique autem ab asperiores voluptatem iste. Tenetur, natus!</p>
+            </div>
+            <div class="img">
+                <img src="{% static 'img/bg2.png' %}" alt="">
+            </div>
+        </div>
+    </section>     
+    {% endblock %}              

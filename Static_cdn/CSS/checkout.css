@@ -1,0 +1,122 @@
+
+.cart-info{
+    display: flex;
+    flex-wrap: wrap;
+}
+th{
+    text-align: left;
+    padding: 5px;
+    color: white;
+    background: #ff523b;
+    font-weight: normal;
+}
+td{
+    padding: 10px 5px;
+}
+
+td img{
+    width: 20px;
+    height: 20px;
+    margin-right: 10px;
+}
+td:last-child{
+    text-align: right;
+} 
+th:last-child{
+    text-align: right;
+}
+
+
+@media only screen and (max-width:600px){
+    .cart-info p{
+        display: none;
+    }
+} 
+h1{
+    text-align: center;
+    color: #333;
+    margin-top: 8px;
+}
+.checkoutSection{
+    width: 1000px;
+    display: flex;
+    justify-content: center;
+    margin: 0px auto;
+    justify-content: space-between;
+}
+.checkoutForm{
+    margin: 20px;
+    width: 45%;
+    
+}
+.inputBox{
+    position: relative;
+    width: 100%;
+    margin-top: 10px;
+}
+.inputBox input{
+    width: 93%;
+    padding: 12px 0 5px;
+    font-size: 20px;
+    margin: 7px 0;
+    border: none;
+    border-bottom: 2px solid #ff523b;
+    outline: none;
+    resize: none;
+}
+.inputBox span{
+    font-size: 20px;
+    position: absolute;
+    left: 0%;
+    padding: 5px 0;
+    margin: 8px 0;
+    pointer-events: none;
+    transition: 0.5s;
+    color: #333;
+}
+.inputBox input:focus ~ span,
+.inputBox input:valid ~ span{
+    color: red;
+    font-size: 12px;
+    transform: translateY(-15px);
+}
+.s-inputBox{
+    border: 2px solid #ff523b;
+    margin-top: 20px;
+    display: inline-flex;
+}
+.s-inputBox input{
+    border: 2px solid #ff523b;
+    padding: 5px 0;
+    font-size: 16px;
+}
+.checkBox{
+    margin-top: 15px;
+    font-size: 20px;
+}
+#btn-2{
+    border: none;
+    margin: 10px 0;
+}
+.cart-summary{
+    margin-top: 40px;
+    width: 300px;
+}
+table{
+    width: 100%;
+    
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+

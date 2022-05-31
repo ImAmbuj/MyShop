@@ -1,0 +1,69 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title%} All Products - BookStore{% endblock %}
+{% block CSS %}
+<link rel="stylesheet" href="{% static 'CSS/account.css'%}">
+{% endblock %}
+{% block body %}
+{% load static %}
+    <!------------ Accounts Page  -------------->
+    <div class="account-page">
+        <div class="container">
+            <div class="row">
+                <div class="col-2">
+                    <img src="{% static 'img/bg.png' %}" width="100%">
+                </div>
+                <div class="col-2">
+                    <div class="form-container">
+                        <div class="form-btn">
+                            <span onclick="login()">Login</span>
+                            <span onclick="register()">Register</span>
+                            <hr id="Indi">
+                        </div>
+                        <form method="POST" id="LoginForm" style="margin-top: 50px;">
+                            {% csrf_token %}
+                            <input type="text" name="username" placeholder="Username">
+                            <input type="password" name="password" placeholder="Password">
+                            <button type="submit" name="login" value="login" class="btn">Login</button>
+                            <a href="">Forgot Password</a>
+                        </form>
+
+                        <form method="POST" id="RegForm" style="margin-top: 10px;">
+                            {% csrf_token %}
+                            <input type="text" name="username" placeholder="Username">
+                            <input type="email" name="email" placeholder="E-mail">
+                            <input type="password" name="password"  placeholder="Password">
+                            <input type="password" name="password1"  placeholder="Confirm Password">
+                            <button type="submit" value="register" name="register" class="btn">Register</button>
+                            {% for message in messages %}
+                             <h2> {{ message }} </h2>
+                            {% endfor %}  
+                        </form>
+    
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+ {% block js %}
+     <!---Javascript for form-->
+       
+     <script>
+         var LoginForm = document.getElementById("LoginForm");
+         var RegForm = document.getElementById("RegForm");
+         var Indi = document.getElementById("Indi");
+            
+          function register(){
+              RegForm.style.transform = "translateX(0px)";
+              LoginForm.style.transform = "translateX(0px)";
+              Indi.style.transform = "translateX(100px)";
+          }
+          function login(){
+              RegForm.style.transform = "translateX(300px)";
+              LoginForm.style.transform = "translateX(300px)";
+              Indi.style.transform = "translateX(0px)";
+          }
+     </script>
+     {% endblock %}
